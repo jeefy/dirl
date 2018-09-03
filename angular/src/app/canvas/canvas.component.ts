@@ -38,7 +38,10 @@ export class CanvasComponent implements OnInit {
       });
     });
     this.canvas.on('object:scaling', function(options){
+      console.log(options);
       options.target.set({
+        left: Math.round(options.target.left / grid) * grid,
+        top: Math.round(options.target.top / grid) * grid,
         scaleX: Math.round(options.target.scaleX * 2) / 2,
         scaleY: Math.round(options.target.scaleY * 2) / 2,
       })
